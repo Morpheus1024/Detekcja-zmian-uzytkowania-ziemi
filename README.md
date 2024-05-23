@@ -1,1 +1,1 @@
-# Detekcja-zmian-u-ytkowania-ziemi
+# Detekcja-zmian-uzytkowania-ziemi
