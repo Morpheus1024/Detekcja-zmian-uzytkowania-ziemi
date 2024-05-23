@@ -1,0 +1,1 @@
+# Detekcja-zmian-u-ytkowania-ziemi
