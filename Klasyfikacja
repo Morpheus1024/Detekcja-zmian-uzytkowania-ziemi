@@ -1,0 +1,111 @@
+from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+
+# Funkcja do klasyfikacji kolorów na podstawie centroidów
+def classify_color(color, centroids):
+    dist = np.linalg.norm(centroids - color, axis=1)
+    return np.argmin(dist)
+
+# Funkcja do mapowania centroidów na kategorie
+def map_centroids_to_categories(centroids, predefined_colors, categories):
+    mapped_categories = {}
+    for i, centroid in enumerate(centroids):
+        distances = np.linalg.norm(predefined_colors - centroid, axis=1)
+        mapped_categories[i] = categories[np.argmin(distances)]
+    return mapped_categories
+
+# Wczytaj obrazy
+image1 = Image.open('LC08_L1TP_230062_20231028_20231101_02_T1.jpg')
+image2 = Image.open('LC08_L1TP_230062_20190830_20200826_02_T1.jpg')
+
+# Konwertuj obrazy na tablice NumPy
+image1_np = np.array(image1)
+image2_np = np.array(image2)
+
+# Znajdź minimalne wymiary wspólne dla obu obrazów
+min_height = min(image1_np.shape[0], image2_np.shape[0])
+min_width = min(image1_np.shape[1], image2_np.shape[1])
+
+# Przytnij obrazy do minimalnych wymiarów
+image1_np = image1_np[:min_height, :min_width]
+image2_np = image2_np[:min_height, :min_width]
+
+# Oblicz różnicę
+difference = np.abs(image1_np.astype(int) - image2_np.astype(int))
+
+# Normalizuj różnicę dla wyświetlenia
+difference_normalized = (difference - difference.min()) / (difference.max() - difference.min())
+
+# Zastosuj threshold
+threshold = 0.25
+difference_thresholded = np.where(difference_normalized > threshold, difference_normalized, 0)
+
+# Wyświetl obrazy obok siebie
+fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+
+# Wyświetl pierwszy obraz
+axs[0].imshow(image1)
+axs[0].set_title('Obraz 1')
+axs[0].axis('off')
+
+# Wyświetl drugi obraz
+axs[1].imshow(image2)
+axs[1].set_title('Obraz 2')
+axs[1].axis('off')
+
+# Wyświetl różnicę z thresholdem
+cax = axs[2].imshow(difference_thresholded)
+axs[2].set_title('Różnica z thresholdem')
+axs[2].axis('off')
+
+# Dodaj colorbar do ostatniego obrazu
+fig.colorbar(cax, ax=axs[2], orientation='vertical')
+
+# Pokaż obrazy
+plt.show()
+
+# Połącz oba obrazy, aby znaleźć wspólne centroidy kolorów
+combined_image = np.vstack((image1_np.reshape(-1, 3), image2_np.reshape(-1, 3)))
+
+# K-means clustering to find the dominant colors (centroids)
+num_clusters = 4  # We assume there are four main categories: water, forest, city, fields
+kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+kmeans.fit(combined_image)
+centroids = kmeans.cluster_centers_
+
+# Predefined colors and their corresponding categories
+predefined_colors = np.array([[40, 60, 80], [80, 220, 40], [200, 200, 200], [210, 180, 140]])  # Adding a tan color for fields
+categories = ['woda', 'las', 'miasto', 'pola']
+
+# Map centroids to categories
+centroid_to_category = map_centroids_to_categories(centroids, predefined_colors, categories)
+
+# Klasyfikuj obszary w obrazach
+classified_image1 = np.array([[classify_color(image1_np[i, j], centroids) for j in range(min_width)] for i in range(min_height)])
+classified_image2 = np.array([[classify_color(image2_np[i, j], centroids) for j in range(min_width)] for i in range(min_height)])
+
+# Oblicz zmiany w liczbie pikseli dla każdej kategorii
+change_counts = {category: 0 for category in categories}
+
+for i in range(min_height):
+    for j in range(min_width):
+        category1 = centroid_to_category[classified_image1[i, j]]
+        category2 = centroid_to_category[classified_image2[i, j]]
+        if category1 != category2:
+            change_counts[category2] += 1
+            change_counts[category1] -= 1
+
+# Wyświetl klasyfikację zmian
+print("Zmiany w liczbie pikseli dla każdej kategorii:", change_counts)
+
+total_pixels = min_height * min_width
+
+# Oblicz procentowe zmiany dla każdej kategorii w stosunku do rozmiaru całego obrazu
+percentage_changes = {key: (value / total_pixels) * 100 for key, value in change_counts.items()}
+
+# Dodaj znak '+' lub '-' do procentowych zmian
+percentage_changes_with_sign = {key: f"{value:+.2f}%" for key, value in percentage_changes.items()}
+
+print("Procentowe zmiany względem rozmiaru całego obrazu:", percentage_changes_with_sign)
