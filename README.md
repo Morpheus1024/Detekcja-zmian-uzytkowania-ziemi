@@ -13,6 +13,7 @@ Stuck technologiczny:
   - OpenCV
   - Numpy
   - Matplotlib
+  - Rasterio
 
 ## Podział grupy na zespoły
 
