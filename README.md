@@ -1,8 +1,20 @@
-# Detekcja-zmian-uzytkowania-ziemi
+# Detekcja zmian użytkowania ziemi
 
-## Opis wykonanej pracy
+## Zgrubny opis wykonanej pracy
 
-## Podział na grupy
+Zadaniem projektowym było napisanie algorytmu, który przy pomocy serwisu AWS, interfejsu Spark oraz języka Python analizować zdjęcia satelitarne na przestrzeni lat w celu wskazania zmian użytkowania ziemi. Grupa została podzielona na zespoły 2 i 3 osobowe w celu okiełznania kolejnych etapów realizacji proejktu.
+Ostatecznie udało się opracować algorytm wykrywania zmian na zdęciach satelitarych landsat 8 za pomocą m.in. segmentacji progowej, heatmapy. Wykorzystano AWS i Spark w celu operacji na dużej ilosci danych.
+
+Stuck technologiczny:
+
+- AWS EMR i S3
+- PySpark
+- Python
+  - OpenCV
+  - Numpy
+  - Matplotlib
+
+## Podział grupy na zespoły
 
 - Michał Kolada, Kewin Trochowski - konfiguracja AWS
 - Anna Ivanytska, Jakub Dobruchowski, Maksym Małek - pobranie i wstępne przefiltrowanie zdjęć Landsat
