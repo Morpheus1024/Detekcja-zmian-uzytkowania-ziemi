@@ -34,5 +34,3 @@ Nasza praca pokazała, że przejście na dane z Landsat 8 było kluczowe dla uzy
 Oprócz zadania zwiazanego z analizą danych zapoznaliśmy się z PySparkiem, którego użycie zostało wskazane w opisie zadania projektowego. Wykorzystano go do agregacji zdjęć wybranych przez nas zdjeć oraz do częściowej obróbki danych.
 PySpark został wykorzystany tak na lokalnej maszynie jak i na klastrze obliczeniowym w serwisie AWS.
 Z naszej obserwacji wynikła, że zastosowanie Sparka przyśpieszyło tempo wykonywania operacji na pobranych zdjęciach.
-
-[Sprawozdanie](README.md)
