@@ -29,4 +29,3 @@ Odnośniki do sprawozdań z poszczególnych etapów:
 - **[Konfiguracja AWS](sprawozdania/AWS.md)**
 - **[Pobranie i wstępne przefiltrowanie zdjęć](sprawozdania/Pobranie_wstepna_obrobka.md)**
 - **[Analiza danych i detekcja zmian](sprawozdania/Analiza_Danych.md)**
-- **[Prezentacja wyników](Prezentacja_wyników.md)**
