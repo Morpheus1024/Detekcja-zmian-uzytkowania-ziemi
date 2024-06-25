@@ -25,6 +25,8 @@ Przed przejściem do bezpośredniego porównania zdjęć, podjęliśmy próby za
 3. **Porównanie Obrazów**: Skoncentrowaliśmy się na bezpośrednim porównaniu obrazów z różnych lat, identyfikując zmiany w pokrywie terenu, urbanizacji, i innych kluczowych wskaźnikach.
 4. **Analiza Wyników**: Wyniki naszej analizy pozwoliły na zidentyfikowanie istotnych zmian w badanym obszarze, takich jak wzrost obszarów zurbanizowanych czy zmiany w pokrywie roślinnej.
 
+![alt text](1.png)
+
 ## Wnioski
 
 Nasza praca pokazała, że przejście na dane z Landsat 8 było kluczowe dla uzyskania bardziej wiarygodnych i dokładnych wyników. Dzięki nowocześniejszym sensorom i lepszej jakości obrazów mogliśmy dokładniej przeanalizować zmiany zachodzące na powierzchni Ziemi.Stwierdziliśmy, że bezpośrednie porównanie zdjęć okazało się najbardziej efektywną metodą analizy, mimo wcześniejszych prób zastosowania różnych modeli analitycznych.
