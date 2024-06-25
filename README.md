@@ -24,10 +24,9 @@ Stuck technologiczny:
 
 ## Sprawozdania
 
-Odnośniki do sprawozdań poszczególnych grup:
+Odnośniki do sprawozdań z poszczególnych etapów:
 
 - **[Konfiguracja AWS](sprawozdania/AWS.md)**
 - **[Pobranie i wstępne przefiltrowanie zdjęć](sprawozdania/Pobranie_wstepna_obrobka.md)**
-- **[Analiza danych](sprawozdania/Analiza_Danych.md)**
-- **[Detekcja zmian użytkowania ziemi](Detekcja_zman_uzytkowania_ziemi.md)**
+- **[Analiza danych i detekcja zmian](sprawozdania/Analiza_Danych.md)**
 - **[Prezentacja wyników](Prezentacja_wyników.md)**
