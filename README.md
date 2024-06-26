@@ -1,13 +1,12 @@
-# Detekcja zmian użytkowania ziemi
+# Land Use Change Detection
 
-## Zgrubny opis wykonanej pracy
+## Overview of Work Completed
 
-Zadaniem projektowym było napisanie algorytmu, który przy pomocy serwisu AWS, interfejsu Spark oraz języka Python analizować zdjęcia satelitarne na przestrzeni lat w celu wskazania zmian użytkowania ziemi. Grupa została podzielona na zespoły 2 i 3 osobowe w celu okiełznania kolejnych etapów realizacji proejktu.
-Ostatecznie udało się opracować algorytm wykrywania zmian na zdęciach satelitarych landsat 8 za pomocą m.in. segmentacji progowej, heatmapy. Wykorzystano AWS i Spark w celu operacji na dużej ilosci danych.
+The project task was to develop an algorithm using AWS services, Spark interface, and Python to analyze satellite images over the years to identify changes in land use. The group was divided into 2-3 member teams to manage different stages of the project. Ultimately, we developed an algorithm to detect changes in Landsat 8 satellite images using techniques such as threshold segmentation, heatmaps and more. AWS and Spark were utilized to handle large amounts of data.
 
-Stuck technologiczny:
+Technology Stack:
 
-- AWS EMR i S3
+- AWS EMR and S3
 - PySpark
 - Python
   - OpenCV
@@ -15,18 +14,18 @@ Stuck technologiczny:
   - Matplotlib
   - Rasterio
 
-## Podział grupy na zespoły
+## Team Division
 
-- Michał Kolada, Kewin Trochowski - konfiguracja AWS
-- Anna Ivanytska, Jakub Dobruchowski, Maksym Małek - pobranie i wstępne przefiltrowanie zdjęć Landsat
-- Oliwer Lisek, Mikołaj Galant - Analiza danych, operowanie przy pomocy PySpark
-- Konrad Siemiątkowski, Przemek Piątkiewicz, Michał Pryba - detekcja zmian użytkowania ziemi
-- Jakub Dufke, Mateusz Drzewiecki - prezentacja wyników, grupa pomocy
+- **Michał Kolada, Kewin Trochowski** - AWS configuration
+- **Anna Ivanytska, Jakub Dobruchowski, Maksym Małek** - Landsat image retrieval and preliminary filtering
+- **Oliwer Lisek, Mikołaj Galant** - Data analysis using PySpark
+- **Konrad Siemiątkowski, Przemek Piątkiewicz, Michał Pryba** - Land use change detection
+- **Jakub Dufke, Mateusz Drzewiecki** - Results presentation, support team
 
-## Sprawozdania
+## Reports
 
-Odnośniki do sprawozdań z poszczególnych etapów:
+Links to reports from individual stages:
 
-- **[Konfiguracja AWS](sprawozdania/AWS.md)**
-- **[Pobranie i wstępne przefiltrowanie zdjęć](sprawozdania/Pobranie_wstepna_obrobka.md)**
-- **[Analiza danych i detekcja zmian](sprawozdania/Analiza_Danych.md)**
+- **[AWS Configuration](sprawozdania/ver_english/AWS.md)**
+- **[Image Retrieval and Preliminary Filtering](sprawozdania/ver_english/Download_and_pre-processing.md)**
+- **[Data Analysis and Change Detection](sprawozdania/ver_english/Data_Analysis.md)**
